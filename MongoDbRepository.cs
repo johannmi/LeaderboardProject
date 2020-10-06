@@ -158,6 +158,11 @@ public class MongoDbRepository : IRepository
 
         return null;
     }
+
+    public async Task<int> GetPlayerLevel(Guid playerId){
+        Player player = await GetPlayer(playerId);
+        return player.Level;
+    }
     public async Task<Item> DeleteItem(Guid playerId, Item item)
     {
         Player player = await GetPlayer(playerId);

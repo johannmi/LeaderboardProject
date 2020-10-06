@@ -28,3 +28,34 @@ E:\Random\Opiskelu\Vuosi 3\Taustajärjestelmät\LeaderboardProject\obj\Debug\net
 E:\Random\Opiskelu\Vuosi 3\Taustajärjestelmät\LeaderboardProject\obj\Debug\netcoreapp3.1\LeaderboardProject.dll
 E:\Random\Opiskelu\Vuosi 3\Taustajärjestelmät\LeaderboardProject\obj\Debug\netcoreapp3.1\LeaderboardProject.pdb
 E:\Random\Opiskelu\Vuosi 3\Taustajärjestelmät\LeaderboardProject\obj\Debug\netcoreapp3.1\LeaderboardProject.genruntimeconfig.cache
+C:\Users\eveli\Documents\pruju\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\eveli\Documents\pruju\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\eveli\Documents\pruju\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Users\eveli\Documents\pruju\bin\Debug\netcoreapp3.1\LeaderboardProject.exe
+C:\Users\eveli\Documents\pruju\bin\Debug\netcoreapp3.1\LeaderboardProject.deps.json
+C:\Users\eveli\Documents\pruju\bin\Debug\netcoreapp3.1\LeaderboardProject.runtimeconfig.json
+C:\Users\eveli\Documents\pruju\bin\Debug\netcoreapp3.1\LeaderboardProject.runtimeconfig.dev.json
+C:\Users\eveli\Documents\pruju\bin\Debug\netcoreapp3.1\LeaderboardProject.dll
+C:\Users\eveli\Documents\pruju\bin\Debug\netcoreapp3.1\LeaderboardProject.pdb
+C:\Users\eveli\Documents\pruju\bin\Debug\netcoreapp3.1\DnsClient.dll
+C:\Users\eveli\Documents\pruju\bin\Debug\netcoreapp3.1\MongoDB.Bson.dll
+C:\Users\eveli\Documents\pruju\bin\Debug\netcoreapp3.1\MongoDB.Driver.dll
+C:\Users\eveli\Documents\pruju\bin\Debug\netcoreapp3.1\MongoDB.Driver.Core.dll
+C:\Users\eveli\Documents\pruju\bin\Debug\netcoreapp3.1\MongoDB.Libmongocrypt.dll
+C:\Users\eveli\Documents\pruju\bin\Debug\netcoreapp3.1\SharpCompress.dll
+C:\Users\eveli\Documents\pruju\bin\Debug\netcoreapp3.1\runtimes\win\native\libzstd.dll
+C:\Users\eveli\Documents\pruju\bin\Debug\netcoreapp3.1\runtimes\win\native\snappy32.dll
+C:\Users\eveli\Documents\pruju\bin\Debug\netcoreapp3.1\runtimes\win\native\snappy64.dll
+C:\Users\eveli\Documents\pruju\obj\Debug\netcoreapp3.1\LeaderboardProject.csprojAssemblyReference.cache
+C:\Users\eveli\Documents\pruju\obj\Debug\netcoreapp3.1\LeaderboardProject.AssemblyInfoInputs.cache
+C:\Users\eveli\Documents\pruju\obj\Debug\netcoreapp3.1\LeaderboardProject.AssemblyInfo.cs
+C:\Users\eveli\Documents\pruju\obj\Debug\netcoreapp3.1\LeaderboardProject.csproj.CoreCompileInputs.cache
+C:\Users\eveli\Documents\pruju\obj\Debug\netcoreapp3.1\LeaderboardProject.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\eveli\Documents\pruju\obj\Debug\netcoreapp3.1\LeaderboardProject.RazorTargetAssemblyInfo.cache
+C:\Users\eveli\Documents\pruju\obj\Debug\netcoreapp3.1\LeaderboardProject.csproj.CopyComplete
+C:\Users\eveli\Documents\pruju\obj\Debug\netcoreapp3.1\staticwebassets\LeaderboardProject.StaticWebAssets.Manifest.cache
+C:\Users\eveli\Documents\pruju\obj\Debug\netcoreapp3.1\staticwebassets\LeaderboardProject.StaticWebAssets.xml
+C:\Users\eveli\Documents\pruju\obj\Debug\netcoreapp3.1\LeaderboardProject.dll
+C:\Users\eveli\Documents\pruju\obj\Debug\netcoreapp3.1\LeaderboardProject.pdb
+C:\Users\eveli\Documents\pruju\obj\Debug\netcoreapp3.1\LeaderboardProject.genruntimeconfig.cache
+C:\Users\eveli\Documents\pruju\bin\Debug\netcoreapp3.1\FluentValidation.dll

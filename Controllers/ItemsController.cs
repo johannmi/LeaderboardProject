@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using FluentValidation;
 
 [ApiController]
 [Route("apiproject/players/{playerId}/items")]
@@ -52,4 +53,24 @@ public class ItemsController : ControllerBase
     {
         return repo.DeleteItem(playerId, item);
     }
+
+    [HttpPost] //{"Name":"yeet"}
+        
+        [Route("createSword")]
+        public async Task<Item> CreateSword([FromBody] NewSword sword, Guid playerId)
+        {
+            DateTime localDate = DateTime.UtcNow;
+            int ownerLvl = await repo.GetPlayerLevel(playerId);
+
+            Sword new_sword = new Sword();
+            LevelValidator validator = new LevelValidator();
+            new_sword.Id = Guid.NewGuid();
+            new_sword.OwnerLevel = ownerLvl;
+            new_sword.Level = 1;
+            new_sword.SwordType = sword.SwordType;
+            validator.ValidateAndThrow(new_sword);
+
+            await repo.CreateItem(playerId, new_sword);
+            return new_sword;
+        }
 }

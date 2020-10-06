@@ -12,6 +12,7 @@ public interface IRepository
     Task<Player> DeletePlayer(Guid playerId);
     Task<Player[]> GetTopXPlayers(int x);
     Task<Player> GetXthPlayer(int Xth);
+    Task<int> GetPlayerLevel(Guid playerId);
 
     Task<Item> CreateItem(Guid playerId, Item item);
     Task<Item> GetItem(Guid playerId, Guid itemId);
