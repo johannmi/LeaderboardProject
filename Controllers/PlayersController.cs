@@ -84,7 +84,7 @@ public class PlayersController : ControllerBase
         return repo.GetXthPlayer(x);
     }
 
-    //////
+    /*-------- DELETE DATABASE | DEBUG ONLY ---------*/
 
     [Route("deleteAll")]
     [HttpDelete]

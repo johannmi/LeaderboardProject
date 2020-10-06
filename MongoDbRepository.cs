@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
+// Testi kommentti !
+
 public class MongoDbRepository : IRepository
 {
     private readonly IMongoCollection<Player> _playerCollection;
@@ -49,6 +51,23 @@ public class MongoDbRepository : IRepository
         return players.ToArray();
     }
 
+    public async Task<Player> UpdatePlayer(Guid id, ModifiedPlayer player)
+    {
+        FilterDefinition<Player> filter = Builders<Player>.Filter.Eq(p => p.Id, id);
+        Player returnPlayer = await _playerCollection.Find(filter).FirstAsync();
+        returnPlayer.Score = player.Score;
+        returnPlayer.IsBanned = player.IsBanned;
+        returnPlayer.Level = player.Level;
+        await _playerCollection.ReplaceOneAsync(filter, returnPlayer);
+        return returnPlayer;
+    }
+
+    public async Task<UpdateResult> UpdatePlayerScore(Guid id, int AddToScore){
+        FilterDefinition<Player> filter = Builders<Player>.Filter.Eq("Id", id);
+        var update = Builders<Player>.Update.Inc("Score", AddToScore);
+        return await _playerCollection.UpdateOneAsync(filter, update);
+    }
+
     /* BUBBLE SORT !!
     public async Task<Player[]> GetFullLeaderboard()
     {
@@ -80,23 +99,6 @@ public class MongoDbRepository : IRepository
         return players.ToArray();
     }
 
-    public async Task<Player> UpdatePlayer(Guid id, ModifiedPlayer player)
-    {
-        FilterDefinition<Player> filter = Builders<Player>.Filter.Eq(p => p.Id, id);
-        Player returnPlayer = await _playerCollection.Find(filter).FirstAsync();
-        returnPlayer.Score = player.Score;
-        returnPlayer.IsBanned = player.IsBanned;
-        returnPlayer.Level = player.Level;
-        await _playerCollection.ReplaceOneAsync(filter, returnPlayer);
-        return returnPlayer;
-    }
-
-    public async Task<UpdateResult> UpdatePlayerScore(Guid id, int AddToScore){
-        FilterDefinition<Player> filter = Builders<Player>.Filter.Eq("Id", id);
-        var update = Builders<Player>.Update.Inc("Score", AddToScore);
-        return await _playerCollection.UpdateOneAsync(filter, update);
-    }
-
     public async Task<Player[]> GetTopXPlayers(int x)
     {
         Player[] players = await GetFullLeaderboard();
@@ -111,7 +113,7 @@ public class MongoDbRepository : IRepository
         return players[Xth - 1];
     }
 
-    ///////
+    /*------- ITEMS --------*/
 
     public async Task<Item> CreateItem(Guid playerId, Item item)
     {
@@ -124,7 +126,6 @@ public class MongoDbRepository : IRepository
     public async Task<Item> GetItem(Guid playerId, Guid itemId)
     {
         Player player = await GetPlayer(playerId);
-        //var filter = Builders<Item>.Filter.Eq(item => item.Id, itemId);
 
         for (int i = 0; i < player.items.Count; i++)
         {
@@ -175,9 +176,11 @@ public class MongoDbRepository : IRepository
         return null;
     }
 
+    /*-------- DELETE DATABASE | DEBUG ONLY ---------*/
+
     public void DeleteAll()
     {
         var mongoClient = new MongoClient("mongodb://localhost:27017");
-        mongoClient.DropDatabase("game");
+        mongoClient.DropDatabase("LeaderboardProject");
     }
 }
