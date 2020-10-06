@@ -39,16 +39,16 @@ public class ItemsController : ControllerBase
         return repo.CreateItem(playerId, newItem);
     }
 
-    [Route("modify/{id}")]
+    [Route("modify")]
     [HttpPost]
-    public Task<Item> UpdateItem(Guid playerId, Item item)
+    public Task<Item> UpdateItem(Guid playerId, [FromBody] Item item)
     {
         return repo.UpdateItem(playerId, item);
     }
 
-    [Route("delete/{id}")]
+    [Route("delete")]
     [HttpDelete]
-    public Task<Item> DeleteItem(Guid playerId, Item item)
+    public Task<Item> DeleteItem(Guid playerId, [FromBody] Item item)
     {
         return repo.DeleteItem(playerId, item);
     }

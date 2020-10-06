@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
-// Testi kommentti !
-
 public class MongoDbRepository : IRepository
 {
     private readonly IMongoCollection<Player> _playerCollection;
@@ -113,6 +111,17 @@ public class MongoDbRepository : IRepository
         return players[Xth - 1];
     }
 
+    public async Task<Player[]> GetPlayersWithAboveScore(int min)
+    {
+        FilterDefinition<Player> filter = 
+            Builders<Player>.Filter.Gte("Score", min) & Builders<Player>.Filter.Eq(p=>p.IsBanned, false);
+        SortDefinition<Player> sortDef = Builders<Player>.Sort.Descending("Score");
+
+        List<Player> players = await _playerCollection.Find(filter).Sort(sortDef).ToListAsync();
+
+        return players.ToArray();
+    }
+
     /*------- ITEMS --------*/
 
     public async Task<Item> CreateItem(Guid playerId, Item item)
@@ -121,6 +130,7 @@ public class MongoDbRepository : IRepository
         player.items.Add(item);
         var filter = Builders<Player>.Filter.Eq(player => player.Id, playerId);
         await _playerCollection.ReplaceOneAsync(filter, player);
+        await UpdatePlayerItemScore(player.Id);
         return item;
     }
     public async Task<Item> GetItem(Guid playerId, Guid itemId)
@@ -141,6 +151,19 @@ public class MongoDbRepository : IRepository
         return player.items.ToArray();
     }
 
+    public async Task<UpdateResult> UpdatePlayerItemScore(Guid playerId)
+    {
+        int itemScore = 0;
+        Player player = await GetPlayer(playerId);
+        
+        for(int i = 0; i < player.items.Count; i++) {
+            itemScore += player.items[i].Level;
+        }
+
+        FilterDefinition<Player> filter = Builders<Player>.Filter.Eq("Id", playerId);
+        var update = Builders<Player>.Update.Set("ItemScore", itemScore);
+        return await _playerCollection.UpdateOneAsync(filter, update);
+    }
     public async Task<Item> UpdateItem(Guid playerId, Item item)
     {
         Player player = await GetPlayer(playerId);
@@ -152,6 +175,7 @@ public class MongoDbRepository : IRepository
                 i.Level = item.Level;
                 var filter_player = Builders<Player>.Filter.Eq(player => player.Id, playerId);
                 await _playerCollection.ReplaceOneAsync(filter_player, player);
+                await UpdatePlayerItemScore(player.Id);
                 return i;
             }
         }
@@ -169,6 +193,7 @@ public class MongoDbRepository : IRepository
                 player.items.RemoveAt(i);
                 var filter_player = Builders<Player>.Filter.Eq(player => player.Id, playerId);
                 await _playerCollection.ReplaceOneAsync(filter_player, player);
+                await UpdatePlayerItemScore(player.Id);
                 return item;
             }
         }

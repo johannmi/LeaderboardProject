@@ -12,10 +12,12 @@ public interface IRepository
     Task<Player> DeletePlayer(Guid playerId);
     Task<Player[]> GetTopXPlayers(int x);
     Task<Player> GetXthPlayer(int Xth);
+    Task<Player[]> GetPlayersWithAboveScore(int min);
 
     Task<Item> CreateItem(Guid playerId, Item item);
     Task<Item> GetItem(Guid playerId, Guid itemId);
     Task<Item[]> GetAllItems(Guid playerId);
+    Task<UpdateResult> UpdatePlayerItemScore(Guid playerId);
     Task<Item> UpdateItem(Guid playerId, Item item);
     Task<Item> DeleteItem(Guid playerId, Item item);
 

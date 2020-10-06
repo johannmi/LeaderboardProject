@@ -84,6 +84,20 @@ public class PlayersController : ControllerBase
         return repo.GetXthPlayer(x);
     }
 
+    [Route("minScore/{min}")]
+    [HttpGet]
+    public Task<Player[]> GetPlayersWithAboveScore(int min) {
+        return repo.GetPlayersWithAboveScore(min);
+    }
+
+    [HttpPost]
+    [Route("{id}/updateItemScore")]
+    public async Task<Player> UpdatePlayerItemScore(Guid id)
+    {
+        await repo.UpdatePlayerItemScore(id);
+        return null;
+    }
+
     /*-------- DELETE DATABASE | DEBUG ONLY ---------*/
 
     [Route("deleteAll")]

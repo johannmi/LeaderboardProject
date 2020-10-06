@@ -37,6 +37,18 @@ namespace LeaderboardProject
                 app.UseDeveloperExceptionPage();
             }
 
+            /*
+            app.Use(async (context, next) =>
+            {
+                var endpoint = context.GetEndpoint();
+                if (endpoint != null)
+                {
+                    throw new NotFoundException("404 Not Found");
+                }
+                await next.Invoke();
+            });
+            */
+
             app.UseRouting();
 
             app.UseAuthorization();
