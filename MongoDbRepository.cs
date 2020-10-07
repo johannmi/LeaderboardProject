@@ -208,4 +208,10 @@ public class MongoDbRepository : IRepository
         var mongoClient = new MongoClient("mongodb://localhost:27017");
         mongoClient.DropDatabase("LeaderboardProject");
     }
+
+    
+    public async Task<int> GetPlayerLevel(Guid playerId){
+        Player player = await GetPlayer(playerId);
+        return player.Level;
+    }
 }

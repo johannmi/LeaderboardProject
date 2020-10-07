@@ -13,6 +13,8 @@ public interface IRepository
     Task<Player[]> GetTopXPlayers(int x);
     Task<Player> GetXthPlayer(int Xth);
     Task<Player[]> GetPlayersWithAboveScore(int min);
+    
+    Task<int> GetPlayerLevel(Guid playerId);
 
     Task<Item> CreateItem(Guid playerId, Item item);
     Task<Item> GetItem(Guid playerId, Guid itemId);

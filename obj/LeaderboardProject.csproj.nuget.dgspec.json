@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Random\\Opiskelu\\Vuosi 3\\Taustajärjestelmät\\LeaderboardProject\\LeaderboardProject.csproj": {}
+    "e:\\Random\\Opiskelu\\Vuosi 3\\Taustajärjestelmät\\LeaderboardProject\\LeaderboardProject.csproj": {}
   },
   "projects": {
-    "E:\\Random\\Opiskelu\\Vuosi 3\\Taustajärjestelmät\\LeaderboardProject\\LeaderboardProject.csproj": {
+    "e:\\Random\\Opiskelu\\Vuosi 3\\Taustajärjestelmät\\LeaderboardProject\\LeaderboardProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Random\\Opiskelu\\Vuosi 3\\Taustajärjestelmät\\LeaderboardProject\\LeaderboardProject.csproj",
+        "projectUniqueName": "e:\\Random\\Opiskelu\\Vuosi 3\\Taustajärjestelmät\\LeaderboardProject\\LeaderboardProject.csproj",
         "projectName": "LeaderboardProject",
-        "projectPath": "E:\\Random\\Opiskelu\\Vuosi 3\\Taustajärjestelmät\\LeaderboardProject\\LeaderboardProject.csproj",
+        "projectPath": "e:\\Random\\Opiskelu\\Vuosi 3\\Taustajärjestelmät\\LeaderboardProject\\LeaderboardProject.csproj",
         "packagesPath": "C:\\Users\\Jossu\\.nuget\\packages\\",
-        "outputPath": "E:\\Random\\Opiskelu\\Vuosi 3\\Taustajärjestelmät\\LeaderboardProject\\obj\\",
+        "outputPath": "e:\\Random\\Opiskelu\\Vuosi 3\\Taustajärjestelmät\\LeaderboardProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Jossu\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -38,7 +38,7 @@
           "dependencies": {
             "FluentValidation": {
               "target": "Package",
-              "version": "[*, )"
+              "version": "[9.2.2, )"
             },
             "MongoDb.Driver": {
               "target": "Package",
