@@ -59,3 +59,4 @@ C:\Users\eveli\Documents\pruju\obj\Debug\netcoreapp3.1\LeaderboardProject.csproj
 C:\Users\eveli\Documents\pruju\obj\Debug\netcoreapp3.1\staticwebassets\LeaderboardProject.StaticWebAssets.Manifest.cache
 C:\Users\eveli\Documents\pruju\obj\Debug\netcoreapp3.1\staticwebassets\LeaderboardProject.StaticWebAssets.xml
 C:\Users\eveli\Documents\pruju\obj\Debug\netcoreapp3.1\LeaderboardProject.genruntimeconfig.cache
+E:\Random\Opiskelu\Vuosi 3\Taustajärjestelmät\LeaderboardProject\bin\Debug\netcoreapp3.1\FluentValidation.dll

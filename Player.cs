@@ -15,6 +15,7 @@ public class Player
     public bool IsBanned { get; set; }
     public DateTime CreationTime { get; set; }
     public List<Item> items = new List<Item>();
+    public List<Sword> weapons = new List<Sword>();
     
     public bool ScoreLessThan (Player p)
     {

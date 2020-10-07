@@ -111,13 +111,25 @@ public class MongoDbRepository : IRepository
         return players[Xth - 1];
     }
 
+    public async Task<Player[]> GetItemLeaders()
+    {
+        var filter = Builders<Player>.Filter.Empty;
+        SortDefinition<Player> sortDef = Builders<Player>.Sort.Descending("ItemScore");
+        List<Player> players = await _playerCollection.Find(filter).Sort(sortDef).ToListAsync();
+        players = players.Where(x => x.IsBanned == false).ToList();
+
+        return players.ToArray();
+    }
+
     public async Task<Player[]> GetPlayersWithAboveScore(int min)
     {
         FilterDefinition<Player> filter = 
-            Builders<Player>.Filter.Gte("Score", min) & Builders<Player>.Filter.Eq(p=>p.IsBanned, false);
+            Builders<Player>.Filter.Gte("Score", min) & 
+            Builders<Player>.Filter.Eq(p=>p.IsBanned, false);
         SortDefinition<Player> sortDef = Builders<Player>.Sort.Descending("Score");
 
-        List<Player> players = await _playerCollection.Find(filter).Sort(sortDef).ToListAsync();
+        List<Player> players = 
+            await _playerCollection.Find(filter).Sort(sortDef).ToListAsync();
 
         return players.ToArray();
     }
@@ -128,6 +140,16 @@ public class MongoDbRepository : IRepository
     {
         Player player = await GetPlayer(playerId);
         player.items.Add(item);
+        var filter = Builders<Player>.Filter.Eq(player => player.Id, playerId);
+        await _playerCollection.ReplaceOneAsync(filter, player);
+        await UpdatePlayerItemScore(player.Id);
+        return item;
+    }
+
+    public async Task<Item> CreateSword(Guid playerId, Sword item)
+    {
+        Player player = await GetPlayer(playerId);
+        player.weapons.Add(item);
         var filter = Builders<Player>.Filter.Eq(player => player.Id, playerId);
         await _playerCollection.ReplaceOneAsync(filter, player);
         await UpdatePlayerItemScore(player.Id);
@@ -145,10 +167,11 @@ public class MongoDbRepository : IRepository
 
         return null;
     }
+
     public async Task<Item[]> GetAllItems(Guid playerId)
     {
         Player player = await GetPlayer(playerId);
-        return player.items.ToArray();
+        return player.items.Concat(player.weapons).ToArray();
     }
 
     public async Task<UpdateResult> UpdatePlayerItemScore(Guid playerId)
@@ -160,10 +183,15 @@ public class MongoDbRepository : IRepository
             itemScore += player.items[i].Level;
         }
 
+        for(int i = 0; i < player.weapons.Count; i++) {
+            itemScore += player.weapons[i].Level;
+        }
+
         FilterDefinition<Player> filter = Builders<Player>.Filter.Eq("Id", playerId);
         var update = Builders<Player>.Update.Set("ItemScore", itemScore);
         return await _playerCollection.UpdateOneAsync(filter, update);
     }
+
     public async Task<Item> UpdateItem(Guid playerId, Item item)
     {
         Player player = await GetPlayer(playerId);
@@ -209,7 +237,6 @@ public class MongoDbRepository : IRepository
         mongoClient.DropDatabase("LeaderboardProject");
     }
 
-    
     public async Task<int> GetPlayerLevel(Guid playerId){
         Player player = await GetPlayer(playerId);
         return player.Level;

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "e:\\Random\\Opiskelu\\Vuosi 3\\Taustajärjestelmät\\LeaderboardProject\\LeaderboardProject.csproj": {}
+    "E:\\Random\\Opiskelu\\Vuosi 3\\Taustajärjestelmät\\LeaderboardProject\\LeaderboardProject.csproj": {}
   },
   "projects": {
-    "e:\\Random\\Opiskelu\\Vuosi 3\\Taustajärjestelmät\\LeaderboardProject\\LeaderboardProject.csproj": {
+    "E:\\Random\\Opiskelu\\Vuosi 3\\Taustajärjestelmät\\LeaderboardProject\\LeaderboardProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "e:\\Random\\Opiskelu\\Vuosi 3\\Taustajärjestelmät\\LeaderboardProject\\LeaderboardProject.csproj",
+        "projectUniqueName": "E:\\Random\\Opiskelu\\Vuosi 3\\Taustajärjestelmät\\LeaderboardProject\\LeaderboardProject.csproj",
         "projectName": "LeaderboardProject",
-        "projectPath": "e:\\Random\\Opiskelu\\Vuosi 3\\Taustajärjestelmät\\LeaderboardProject\\LeaderboardProject.csproj",
+        "projectPath": "E:\\Random\\Opiskelu\\Vuosi 3\\Taustajärjestelmät\\LeaderboardProject\\LeaderboardProject.csproj",
         "packagesPath": "C:\\Users\\Jossu\\.nuget\\packages\\",
-        "outputPath": "e:\\Random\\Opiskelu\\Vuosi 3\\Taustajärjestelmät\\LeaderboardProject\\obj\\",
+        "outputPath": "E:\\Random\\Opiskelu\\Vuosi 3\\Taustajärjestelmät\\LeaderboardProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Jossu\\AppData\\Roaming\\NuGet\\NuGet.Config"

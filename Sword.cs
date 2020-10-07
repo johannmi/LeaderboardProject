@@ -12,13 +12,11 @@ using FluentValidation;
 
     public class Sword : Item
     {
-        [Required]
-        public int OwnerLevel{get; set;}
+            public int OwnerLevel {get; set;}
 
-        [EnumDataType(typeof(SwordTypes))]
-        public SwordTypes SwordType { get; set; }
-
-        public int Damage{get; set;}
+            [EnumDataType(typeof(SwordTypes))]
+            public SwordTypes SwordType { get; set; }
+            public int Damage{get; set;}
       
     }
 

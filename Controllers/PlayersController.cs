@@ -37,6 +37,12 @@ public class PlayersController : ControllerBase
         return repo.GetFullLeaderboard();
     }
 
+    [Route("itemleads")]
+    [HttpGet]
+    public Task<Player[]> GetItemLeaders() {
+        return repo.GetItemLeaders();
+    }
+
     [Route("new/{name}")]
     [HttpPost]
     public Task<Player> Create(string name) {

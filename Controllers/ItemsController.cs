@@ -70,7 +70,7 @@ public class ItemsController : ControllerBase
             new_sword.SwordType = sword.SwordType;
             validator.ValidateAndThrow(new_sword);
 
-            await repo.CreateItem(playerId, new_sword);
+            await repo.CreateSword(playerId, new_sword);
             return new_sword;
         }
 }
